@@ -1,4 +1,5 @@
 class Booking < ApplicationRecord
-  belongs_to :user, class_name: "User", optional: true
-  belongs_to :event, class_name: "Event", optional: true
+  belongs_to :attendee, class_name: "User"
+  belongs_to :attended_event, class_name: "Event"
+
 end
