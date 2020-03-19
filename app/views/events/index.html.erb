@@ -1,17 +1,60 @@
-<%= link_to 'Profile page', user_path(current_user) %>
-<%= link_to 'Create a new Event', new_event_path %>
+<nav class="navbar navbar-light sticky-top" style="background-color: #e3f2fd;">
+  <!-- Navbar content -->
+  <ul class="navbar-nav mr-auto list-unstyled">
+      <li class="nav-item active" style="padding:15px;"><%= link_to 'Profile page', user_path(current_user) %>
+      </li>
+      <li class="nav-item"style="padding:15px;"><%= link_to 'Create a new Event', new_event_path %>
+      </li>
+
+    </ul>
+</nav>
+
+
 <h1>All Events</h1>
-<h2>Past Events</h2>
-<ul>
-  <% @past.each do |event| %>
-    <h3>Event name: <%= event.name%></h3>
-    <li>Event description: <%= event.description%></li>
-  <% end %>
-</ul>
-<h2>Upcoming Events</h2>
-<ul>
-  <% @upcoming.each do |event| %>
-    <h3>Event name: <%= event.name%></h3>
-    <li>Event description: <%= event.description%></li>
-  <% end %>
-</ul>
+<div class="container-fluid">
+<div class= "container center"><h2>Past Events</h2></div>
+
+<% @past.each do |event| %>
+<table class="table table-dark">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Event name:</th>
+      <th scope="col">Event description:</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td><%= event.name%></td>
+      <td><%= event.description%></td>
+    </tr>
+  </tbody>
+  
+</table>
+<% end %>
+</div>
+<div class="container-fluid">
+<div class= "container center"><h2>Upcoming Events</h2></div>
+
+<% @upcoming.each do |event| %>
+<table class="table table-dark">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Event name:</th>
+      <th scope="col">Event description:</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td><%= event.name%></td>
+      <td><%= event.description%></td>
+    </tr>
+  </tbody>
+ 
+</table> <% end %>
+</div>
