@@ -1,7 +1,35 @@
 <h1>Profile</h1>
 <p>Welcome <b><%= @user.name %></b></p>
+<h1>Your created events</h1>
 <ul>
-  <% @user.events.each do |event| %>
+<%if @user.events[0].nil?%>
+  <li>You have not created any event. Create one first!!</li>
+<%else%>
+  <% @user.events.each do |event| %> 
     <li><%= event.name%></li>
   <% end %>
+  <%end%>
 </ul>
+
+<h1>Your attended events</h1>
+<ul>
+<%= @upcoming_events.inspect %>
+<%= @prev_events.inspect %>
+
+ <%if @upcoming_events.inspect %>
+<h1>Upcoming events</h1>
+  <%@upcoming_events.each do |event| %>
+  <li><%= event.name%></li>
+  <li><%= event.description%></li>
+    <% end %>
+<%elsif @prev_events%>
+<h1>Previous events</h1>
+  <%@prev_events.each do |event| %>
+  <li><%= event.name%></li>
+  <li><%= event.description%></li>
+    <% end %>
+<%end%> 
+
+</ul>
+
+

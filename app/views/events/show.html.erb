@@ -1,3 +1,9 @@
-<h1><%= @event.creator.name%>'s Event</h1>
+<h1>Welcome to an event created by <%= @event.creator.name%></h1>
+
+<h2>The attendees include:</h2>
+<% @event.bookings.each  do |data|%>
+<h4>Name : <%=data.attendee.name %></h4>
+<h4>Email : <%=data.attendee.email %></h4>
+<%end%>
 
 

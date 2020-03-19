@@ -10,6 +10,9 @@
       <%= f.label :description %>
       <%= f.text_area :description %>
 
+      <%= f.label :date %>
+      <%= f.date_select(:date, :order => [:month, :day, :year]) %>
+
 
       <%= f.submit "Create my event", class: "btn btn-primary" %>
     <% end %>
