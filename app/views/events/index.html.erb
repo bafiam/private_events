@@ -1,6 +1,16 @@
+<%= link_to 'Profile page', user_path(current_user) %>
+<%= link_to 'Create a new Event', new_event_path %>
 <h1>All Events</h1>
+<h2>Past Events</h2>
 <ul>
-  <% @event.each do |event| %>
+  <% @past.each do |event| %>
+    <h3>Event name: <%= event.name%></h3>
+    <li>Event description: <%= event.description%></li>
+  <% end %>
+</ul>
+<h2>Upcoming Events</h2>
+<ul>
+  <% @upcoming.each do |event| %>
     <h3>Event name: <%= event.name%></h3>
     <li>Event description: <%= event.description%></li>
   <% end %>
