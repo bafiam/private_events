@@ -1,0 +1,14 @@
+<h1>Invite Users</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @invite do |f| %>
+      <%= f.label :attendee_id, "Invite" %>
+      <%= f.select :attendee_id, User.where('id != ?', current_user.id).collect { |p| [ "#{p.name} // id: #{p.id}", p.id] }, include_blank: true %>
+
+      <%= f.label :attended_event_id, "To Event" %>
+      <%= f.select :attended_event_id, Event.where(id: current_user.events.ids).collect { |p| [ "#{p.name} // id:#{p.id}", p.id ] }, include_blank: true %>
+
+      <%= f.submit "Invite", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
