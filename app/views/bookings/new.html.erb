@@ -7,7 +7,7 @@
       </li>
       <li class="nav-item"style="padding:15px;"><%= link_to 'Booked Events', event_path(current_user)  %>
       </li>
-      <li class="nav-item"style="padding:15px;"><%= link_to 'Envite Attendees', new_booking_path  %>
+      <li class="nav-item"style="padding:15px;"><%= link_to 'Invite Attendees', invite_path  %>
       </li>
 
     </ul>
@@ -17,7 +17,14 @@
 <h1>Invite Users</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for @invite do |f| %>
+    <% if flash.now[:success]%>
+      <%= flash.now[:success]%>
+    <% elsif flash.now[:warning]%>
+      <%= flash.now[:warning]%>
+    <% elsif flash.now[:danger]%>
+      <%= flash.now[:danger]%>
+    <%end%>
+    <%= form_for @invite, url: invite_path, method: 'post' do |f| %>
       <%= f.label :attendee_id, "Invite" %>
       <%= f.select :attendee_id, User.where('id != ?', current_user.id).collect { |p| [ "#{p.name} // id: #{p.id}", p.id] }, include_blank: true %>
 
