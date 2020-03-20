@@ -5,11 +5,15 @@
       </li>
       <li class="nav-item"style="padding:15px;"><%= link_to 'Profile page', user_path(current_user) %>
       </li>
+      <li class="nav-item"style="padding:15px;"><%= link_to 'Booked Events', event_path(current_user)  %>
+      </li>
+      <li class="nav-item"style="padding:15px;"><%= link_to 'Envite Attendees', new_booking_path %>
+      </li>
 
     </ul>
 </nav>
 <div class="container-fluid">
-<div class="container" style="margin-left:380px"><h1>Create Event</h1></div>
+<div class="container" ><h1>Create Event</h1></div>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
