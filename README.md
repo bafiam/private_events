@@ -48,6 +48,14 @@ Inside The project Repository run the following command:
 
 Then, go to **_http://localhost:3000/_**
 
+## Add populating the database using seed
+
+1. Run `rails db:seed` to populating a database with the initial data needed for a Rails project.
+
+2. Login using `admin@microverse.com` or any email entered during signup.
+
+3. To use any other seeded email, the email prefix is `example-#{n+1}@microverse.org`
+
 ## ⭐️ Testing the code with Rspec
 
 Inside The project Repository run the following command:
