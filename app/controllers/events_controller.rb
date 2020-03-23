@@ -5,7 +5,6 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
-    p @event
     return unless @event.save
 
     redirect_to event_url(@event)
