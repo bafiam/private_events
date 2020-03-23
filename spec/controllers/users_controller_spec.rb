@@ -14,7 +14,7 @@ RSpec.describe UsersController, type: :controller do
       user = User.last
 
       expect(response.content_type).to eq "text/html; charset=utf-8"
-      expect(response).to redirect_to user
+      expect(response).to redirect_to login_path
     end
   end
   describe "GET Show" do

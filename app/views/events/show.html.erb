@@ -9,6 +9,8 @@
       </li>
       <li class="nav-item"style="padding:15px;"><%= link_to 'Invite Attendees', invite_path %>
       </li>
+      <li class="nav-item"style="padding:15px;"><%= link_to "Log out", logout_path, method: :delete%>
+      </li>
 
     </ul>
 </nav>
@@ -16,8 +18,9 @@
 <h1>Welcome to an event created by <%= @event.creator.name%></h1>
 
 <h3 style="margin-left:380px">The attendees include:</h3>
-<% @event.bookings.each  do |data|%>
+
 <table class="table table-dark">
+
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
@@ -26,15 +29,16 @@
       
     </tr>
   </thead>
+  <% @event.bookings.each  do |data|%>
   <tbody>
     <tr>
-      <th scope="row">1</th>
+      <th scope="row">#</th>
       <td><%= data.attendee.name %></td>
       <td><%= data.attendee.email%></td>
     </tr>
-  </tbody>
+  </tbody><%end%>
   
 </table>
-<%end%>
+
 </div>
 

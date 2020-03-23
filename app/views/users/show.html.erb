@@ -9,6 +9,8 @@
       </li>
       <li class="nav-item"style="padding:15px;"><%= link_to 'Invite Attendees', invite_path  %>
       </li>
+      <li class="nav-item"style="padding:15px;"><%= link_to "Log out", logout_path, method: :delete%>
+      </li>
 
     </ul>
 </nav>
@@ -21,7 +23,7 @@
 <%if @user.events[0].nil?%>
   <li>You have not created any event. Create one first!!</li>
 <%else%>
-  <% @user.events.each do |event| %> 
+  
     <table class="table table-dark">
   <thead class="thead-dark">
     <tr>
@@ -30,22 +32,24 @@
       
     </tr>
   </thead>
+  <% @user.events.each do |event| %> 
   <tbody>
     <tr>
       <th scope="row">1</th>
       <td><%= event.name%></td>
     </tr>
   </tbody>
+  <% end %>
   
 </table>
-  <% end %>
+  
   <%end%>
 
 
 <h3 style="margin-left:380px">Your attended events</h3>
 
 <h3>Upcoming events</h3>
-<%@upcoming_events.each do |event| %>
+
 <table class="table table-dark">
   <thead class="thead-dark">
     <tr>
@@ -55,19 +59,20 @@
       
     </tr>
   </thead>
+  <%@upcoming_events.each do |event| %>
   <tbody>
     <tr>
       <th scope="row">1</th>
       <td><%= event.name%></td>
       <td><%= event.description%></td>
     </tr>
-  </tbody>
+  </tbody><% end %>
   
 </table>
-<% end %>
+
 
 <h3>Previous events</h3>
-<%@prev_events.each do |event| %>
+
 <table class="table table-dark">
   <thead class="thead-dark">
     <tr>
@@ -77,16 +82,17 @@
       
     </tr>
   </thead>
+  <%@prev_events.each do |event| %>
   <tbody>
     <tr>
       <th scope="row">1</th>
       <td><%= event.name%></td>
       <td><%= event.description%></td>
     </tr>
-  </tbody>
+  </tbody><% end %>
   
 </table>
-<% end %>
+
 </div>
 
 

@@ -11,6 +11,8 @@
       </li>
       <li class="nav-item"style="padding:15px;"><%= link_to 'Invite Attendees', invite_path %>
       </li>
+      <li class="nav-item"style="padding:15px;"><%= link_to "Log out", logout_path, method: :delete%>
+      </li>
 
     </ul>
 </nav>
@@ -20,7 +22,7 @@
 <div class="container-fluid">
 <div class= "container center"><h2>Past Events</h2></div>
 
-<% @past.each do |event| %>
+
 <table class="table table-dark">
   <thead class="thead-dark">
     <tr>
@@ -30,21 +32,22 @@
       
     </tr>
   </thead>
+  <% @past.each do |event| %>
   <tbody>
     <tr>
-      <th scope="row">1</th>
+      <th scope="row">#</th>
       <td><%= event.name%></td>
       <td><%= event.description%></td>
     </tr>
-  </tbody>
+  </tbody><% end %>
   
 </table>
-<% end %>
+
 </div>
 <div class="container-fluid">
 <div class= "container center"><h2>Upcoming Events</h2></div>
 
-<% @upcoming.each do |event| %>
+
 <table class="table table-dark">
   <thead class="thead-dark">
     <tr>
@@ -54,13 +57,14 @@
       
     </tr>
   </thead>
+  <% @upcoming.each do |event| %>
   <tbody>
     <tr>
-      <th scope="row">1</th>
+      <th scope="row">#</th>
       <td><%= event.name%></td>
       <td><%= event.description%></td>
     </tr>
   </tbody>
- 
-</table> <% end %>
+ <% end %>
+</table> 
 </div>
