@@ -43,10 +43,18 @@ Now, you are ready to install the _Gemfile_ dependencies. Run the following comm
 Inside The project Repository run the following command:
 
 ```
-    rails server
+    $ rails server
 ```
 
 Then, go to **_http://localhost:3000/_**
+
+## ⭐️ Testing the code with Rspec
+
+Inside The project Repository run the following command:
+
+```
+    $ rspec
+```
 
 ## Author
 
