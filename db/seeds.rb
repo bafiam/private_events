@@ -37,3 +37,10 @@ end
     Booking.create!(attendee_id:  n + 2,
                     attended_event_id: 1)
 end
+
+# Inviting Admin to an event from every single user
+
+9.times do |n|
+    Booking.create!(attendee_id:  1,
+                    attended_event_id: n + 2)
+end
