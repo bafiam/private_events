@@ -1,0 +1,43 @@
+<nav class="navbar navbar-light sticky-top" style="background-color: #e3f2fd;">
+  <!-- Navbar content -->
+  <ul class="navbar-nav mr-auto list-unstyled">
+      <li class="nav-item active" style="padding:15px;"><%= link_to 'Profile page', user_path(current_user) %>
+      </li>
+      <li class="nav-item active" style="padding:15px;"><%= link_to 'Create a new Event', new_event_path %>
+      </li>
+      <li class="nav-item"style="padding:15px;"><%= link_to 'All Events', events_path %>
+      </li>
+      <li class="nav-item"style="padding:15px;"><%= link_to 'Booked Events', event_path(current_user)  %>
+      </li>
+      <li class="nav-item"style="padding:15px;"><%= link_to 'Invite Attendees', invite_path  %>
+      </li>
+      <li class="nav-item"style="padding:15px;"><%= link_to "Log out", logout_path, method: :delete%>
+      </li>
+      
+
+    </ul>
+</nav>
+<div class="container-fluid">
+
+<h1>Invite Users</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <% if flash.now[:success]%>
+      <%= flash.now[:success]%>
+    <% elsif flash.now[:warning]%>
+      <%= flash.now[:warning]%>
+    <% elsif flash.now[:danger]%>
+      <%= flash.now[:danger]%>
+    <%end%>
+    <%= form_for @invite, url: invite_path, method: 'post' do |f| %>
+      <%= f.label :attendee_id, "Invite" %>
+      <%= f.select :attendee_id, User.where('id != ?', current_user.id).collect { |p| [ "#{p.name} // id: #{p.id}", p.id] }, include_blank: true %>
+
+      <%= f.label :attended_event_id, "To Event" %>
+      <%= f.select :attended_event_id, Event.where(id: current_user.events.ids).collect { |p| [ "#{p.name} // id:#{p.id}", p.id ] }, include_blank: true %>
+
+      <%= f.submit "Invite", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+</div>
