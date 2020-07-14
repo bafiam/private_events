@@ -4,6 +4,16 @@ The project consist of build an Event site in rails that allows a User to create
 
 [Full task description](https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations)
 
+## Screenshots
+
+### Create an event
+
+![screenshot](private-event-new.png)
+
+### Invite attendees
+
+![screenshot](invite-people.png)
+
 ## Prerequisites
 
 The development environment uses `Ruby`, hence install ruby before proceeding.
